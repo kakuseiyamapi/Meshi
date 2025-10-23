@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>飯ルーレット</title>
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background: linear-gradient(180deg, #fffde7, #fff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #f5b400;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    #roulette {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 6px solid #f5b400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      text-align: center;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      padding: 10px;
+      box-sizing: border-box;
+      transition: transform 3s ease-out;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f5b400;
+      color: white;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e0a800;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍚 飯ルーレット 🎯</h1>
+  <div id="roulette">何食べる？</div>
+  <button onclick="spin()">まわす！</button>
+
+  <script>
+    const foods = ["ラーメン", "寿司", "カレー", "焼肉", "ハンバーガー", "パスタ", "牛丼", "うどん", "そば"];
+    const roulette = document.getElementById("roulette");
+
+    function spin() {
+      roulette.style.transform = "rotate(720deg)";
+      roulette.textContent = "ぐるぐる…";
+      setTimeout(() => {
+        const randomFood = foods[Math.floor(Math.random() * foods.length)];
+        roulette.style.transform = "rotate(0deg)";
+        roulette.textContent = randomFood;
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
